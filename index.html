@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wajiha's Cafe | Premium Luxury Coffee & Dining Lounge</title>
+  <meta name="description"
+    content="Experience the pinnacle of handcrafted artisan coffee, gourmet sandwiches, aromatic biryani, and cozy luxury dining at Wajiha's Cafe. Good Food • Good Mood • Great Coffee." />
+  <meta name="keywords"
+    content="Wajiha's Cafe, luxury coffee shop, gourmet biryani, black coffee, tea, badam milk, sandwiches, maggi, fine dining lounge" />
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Wajiha's Cafe | Premium Luxury Coffee & Dining" />
+  <meta property="og:description"
+    content="Good Food • Good Mood • Great Coffee. Step into a cinematic world of artisan coffee and luxury handcrafted bites." />
+  <meta property="og:image" content="assets/images/logo.jpeg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Wajiha's Cafe",
+    "image": "assets/images/logo.jpeg",
+    "telephone": "+91 7604872100",
+    "priceRange": "₹10 - ₹150",
+    "servesCuisine": ["Coffee", "Tea", "Indian", "Snacks", "Biryani", "Sandwiches"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Main Road",
+      "addressLocality": "City Center",
+      "addressCountry": "IN"
+    },
+    "openingHours": "Mo-Su 07:00-22:30",
+    "slogan": "Good Food, Good Mood, Great Coffee"
+  }
+  </script>
+
+  <!-- External Stylesheets & FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- Animated Grain & Ambient Orbs Background -->
+  <div class="bg-grain"></div>
+  <div class="bg-glow-orb orb-1"></div>
+  <div class="bg-glow-orb orb-2"></div>
+
+  <!-- Custom Luxury Cursor -->
+  <div class="custom-cursor" id="cursor-dot"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- PRELOADER SCREEN -->
+  <div id="preloader">
+    <div class="loader-container">
+      <svg class="loader-cup-svg" viewBox="0 0 100 110">
+        <!-- Cup Outline -->
+        <path class="cup-outline" d="M20,30 L80,30 L72,85 C72,90 65,95 50,95 C35,95 28,90 28,85 Z" />
+        <!-- Cup Handle -->
+        <path class="cup-outline" d="M80,40 C92,40 92,65 76,68" />
+        <!-- Coffee Fill -->
+        <path class="coffee-fill" d="M22,35 L78,35 L72,85 C72,90 65,93 50,93 C35,93 28,90 28,85 Z" />
+        <!-- Steam Morphing 'W' -->
+        <path class="steam-path" d="M 32 25 Q 36 10 40 22 T 48 10 T 56 22 T 64 10" />
+      </svg>
+      <div class="loader-text-brand">WAJIHA'S CAFE</div>
+      <div class="loader-counter"><span id="loader-percent">0</span>%</div>
+    </div>
+  </div>
+
+  <!-- GLASSMORPHISM NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="nav-brand">
+      <img src="assets/images/logo.jpeg" alt="Wajiha's Cafe Logo" class="nav-logo-img" />
+      <div class="nav-title">
+        Wajiha's
+        <span>C A F E</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#story" class="nav-link">Story</a></li>
+      <li><a href="#menu" class="nav-link">Menu</a></li>
+      <li><a href="#showcase" class="nav-link">3D Craft</a></li>
+      <li><a href="#gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a href="#contact" class="btn-luxury">Book Table</a>
+    </div>
+
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV DRAWER -->
+  <div class="mobile-nav-drawer" id="mobile-drawer">
+    <button class="mobile-close" id="mobile-close" aria-label="Close Menu">&times;</button>
+    <a href="#home" class="nav-link mobile-link">Home</a>
+    <a href="#story" class="nav-link mobile-link">Story</a>
+    <a href="#menu" class="nav-link mobile-link">Menu</a>
+    <a href="#showcase" class="nav-link mobile-link">3D Craft</a>
+    <a href="#gallery" class="nav-link mobile-link">Gallery</a>
+    <a href="#contact" class="nav-link mobile-link">Contact</a>
+    <a href="#contact" class="btn-luxury mobile-link" style="margin-top: 15px;">Book Table / Bulk Order</a>
+  </div>
+
+  <!-- HERO SECTION WITH 3D STEAM morphing & LIGHTING -->
+  <section class="hero-section" id="home">
+    <canvas id="hero-canvas"></canvas>
+
+    <div class="hero-overlay-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-crown"></i> Artisanal Coffee Lounge
+      </div>
+      <h1 class="hero-title">
+        Wajiha's Cafe
+        <span>Good Food • Good Mood • Great Coffee</span>
+      </h1>
+      <p class="hero-subtitle">
+        Indulge in a cinematic sensory experience. Handcrafted brews, rich spices, and unforgettable cozy warmth crafted
+        with perfection.
+      </p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn-luxury"><i class="fa-solid fa-mug-hot"></i> Explore Menu</a>
+        <a href="#contact" class="btn-luxury btn-luxury-outline"><i class="fa-solid fa-calendar-check"></i> Book
+          Table</a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="mouse-icon">
+        <div class="mouse-wheel"></div>
+      </div>
+      <span>Scroll To Discover</span>
+    </div>
+  </section>
+
+  <!-- BRAND STORY / ABOUT SECTION -->
+  <section class="about-section" id="story">
+    <div class="about-grid">
+      <div class="about-image-wrapper">
+        <img src="assets/images/coffee_latte_art.jpg" alt="Wajiha's Cafe Artisan Brew" class="about-img" />
+        <div class="about-glass-badge">
+          <div class="badge-num" id="count-happy">5000+</div>
+          <div class="badge-lbl">Happy Smiles Served</div>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <div class="section-header" style="text-align: left; margin-bottom: 20px;">
+          <span class="section-tag">Our Heritage</span>
+          <h2 class="section-title">A Symphony of Spices & Fresh Brews</h2>
+        </div>
+        <p class="about-text">
+          Founded with a passion for exceptional taste, Wajiha's Cafe is where luxury meets comfort. Every cup of coffee
+          is meticulously prepared using premium roasted beans, and every bite—from our comforting hot Maggi to
+          authentic chicken biryani—is cooked fresh with love and secret house spice blends.
+        </p>
+        <p class="about-text">
+          Whether you're starting your morning with our signature Cotton Seed Milk or catching up with friends over
+          crispy Samosas and Rose Milk, Wajiha's Cafe is your sanctuary for great food and memorable moments.
+        </p>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" id="count-brews">15+</div>
+            <div class="stat-label">Artisan Drinks</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Fresh Quality</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">★ 4.9</div>
+            <div class="stat-label">Customer Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE MENU SECTION -->
+  <section class="menu-section" id="menu">
+    <div class="section-header">
+      <span class="section-tag">Crafted Delights</span>
+      <h2 class="section-title">The Official Cafe Menu</h2>
+      <p class="section-subtitle">Explore our exact handcrafted dishes and signature brews</p>
+    </div>
+
+    <div class="menu-controls">
+      <!-- Search Input -->
+      <div class="menu-search-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="menu-search" class="menu-search-input"
+          placeholder="Search coffee, biryani, maggi, drinks..." />
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="category-tabs">
+        <button class="cat-tab active" data-category="all">All Items</button>
+        <button class="cat-tab" data-category="hot-drinks">Hot Drinks</button>
+        <button class="cat-tab" data-category="maggi">Maggi</button>
+        <button class="cat-tab" data-category="sandwiches">Sandwiches</button>
+        <button class="cat-tab" data-category="biryani">Biryani & Rice</button>
+        <button class="cat-tab" data-category="snacks">Snacks</button>
+        <button class="cat-tab" data-category="beverages">Beverages</button>
+      </div>
+    </div>
+
+    <!-- Menu Cards Grid -->
+    <div class="menu-grid" id="menu-grid">
+      <!-- Dynamic Javascript Rendering of exact items -->
+    </div>
+
+    <!-- Special Bulk Order Banner -->
+    <div class="bulk-order-banner">
+      <div class="bulk-info">
+        <h3><i class="fa-solid fa-bullhorn"></i> Catering & Bulk Orders</h3>
+        <p>We undertake bulk orders for events, celebrations, corporate meetings & special gatherings!</p>
+      </div>
+      <a href="tel:+917604872100" class="btn-luxury"><i class="fa-solid fa-phone"></i> Call +91 7604872100</a>
+    </div>
+  </section>
+
+  <!-- 3D SHOWCASE SECTION -->
+  <section class="showcase-3d-section" id="showcase">
+    <div class="section-header">
+      <span class="section-tag">Interactive Canvas</span>
+      <h2 class="section-title">3D Coffee Craft Experience</h2>
+      <p class="section-subtitle">Rotate, interact, and feel the aroma of our signature roast</p>
+    </div>
+
+    <div class="showcase-container">
+      <div class="showcase-canvas-wrapper">
+        <canvas id="showcase-canvas"></canvas>
+      </div>
+      <div class="showcase-content">
+        <h3 class="showcase-title">Artisan Ceramic & Coffee Shader</h3>
+        <p class="showcase-desc">
+          Using real-time physical rendering (PBR), our 3D interactive coffee cup showcases realistic ceramic gloss,
+          warmth, floating coffee beans, and natural steam dynamics. Move your cursor to interact with light and
+          reflections.
+        </p>
+        <div style="display: flex; gap: 15px; margin-top: 10px;">
+          <a href="#contact" class="btn-luxury"><i class="fa-solid fa-mug-saucer"></i> Order Coffee</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US SECTION -->
+  <section class="features-section">
+    <div class="section-header">
+      <span class="section-tag">The Wajiha's Difference</span>
+      <h2 class="section-title">Why Our Guests Love Us</h2>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-box"><i class="fa-solid fa-seedling"></i></div>
+        <h3 class="feature-title">Fresh Ingredients</h3>
+        <p class="feature-desc">Every dish is prepared on-demand with handpicked local ingredients and premium authentic
+          spices.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-box"><i class="fa-solid fa-heart"></i></div>
+        <h3 class="feature-title">Affordable Luxury</h3>
+        <p class="feature-desc">Unbeatable prices ranging from ₹10 to ₹150 so everyone can enjoy a high-end dining
+          experience.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-box"><i class="fa-solid fa-champagne-glasses"></i></div>
+        <h3 class="feature-title">Bulk Event Catering</h3>
+        <p class="feature-desc">Host your memorable birthdays, office parties, and family gatherings with our tailored
+          catering menu.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-box"><i class="fa-solid fa-mug-hot"></i></div>
+        <h3 class="feature-title">Artisan Coffee & Tea</h3>
+        <p class="feature-desc">From soothing Badam Milk to bold Black Coffee and Cotton Seed Milk, brewed fresh daily.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHEF'S RECOMMENDATION / TODAY'S SPECIAL -->
+  <section class="specials-section">
+    <div class="section-header">
+      <span class="section-tag">Chef Recommendations</span>
+      <h2 class="section-title">Today's Highlight Dishes</h2>
+    </div>
+
+    <div class="specials-grid">
+      <!-- Special 1 -->
+      <div class="special-card">
+        <div class="special-img-box">
+          <img src="assets/images/biryani_luxury.jpg" alt="Chicken Biryani" />
+          <span class="special-tag">Chef's Choice</span>
+        </div>
+        <div class="special-body">
+          <h3 class="special-title">Authentic Chicken Biryani</h3>
+          <p class="special-desc">Slow-cooked fragrant basmati rice with tender spiced chicken pieces, mint & saffron
+            aroma.</p>
+          <div class="special-footer">
+            <span class="special-price">₹150</span>
+            <button class="item-order-btn" onclick="openOrderModal('Chicken Biryani')">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Special 2 -->
+      <div class="special-card">
+        <div class="special-img-box">
+          <img src="assets/images/coffee_latte_art.jpg" alt="Artisan Coffee" />
+          <span class="special-tag">Most Popular</span>
+        </div>
+        <div class="special-body">
+          <h3 class="special-title">Wajiha's Special Coffee</h3>
+          <p class="special-desc">Rich milk coffee brewed with dark roasted beans, silky foam and heartwarming aroma.
+          </p>
+          <div class="special-footer">
+            <span class="special-price">₹20</span>
+            <button class="item-order-btn" onclick="openOrderModal('Wajiha Special Coffee')">Order Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Special 3 -->
+      <div class="special-card">
+        <div class="special-img-box">
+          <img src="assets/images/samosa_snack.jpg" alt="Aloo Samosa" />
+          <span class="special-tag">Crispy Snack</span>
+        </div>
+        <div class="special-body">
+          <h3 class="special-title">Crispy Aloo Samosa</h3>
+          <p class="special-desc">Golden crisp pastry filled with spiced potato mash and herbs, served with fresh
+            chutney.</p>
+          <div class="special-footer">
+            <span class="special-price">₹15</span>
+            <button class="item-order-btn" onclick="openOrderModal('Aloo Samosa')">Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MASONRY GALLERY SECTION -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header">
+      <span class="section-tag">Atmosphere & Flavors</span>
+      <h2 class="section-title">Photo Gallery</h2>
+      <p class="section-subtitle">Click any photo for a full-screen luxury view</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item tall"
+        onclick="openLightbox('assets/images/coffee_latte_art.jpg', 'Artisan Coffee Cup with Latte Art')">
+        <img src="assets/images/coffee_latte_art.jpg" alt="Coffee Art" />
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Artisan Coffee & Latte Art</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox('assets/images/biryani_luxury.jpg', 'Signature Chicken Biryani')">
+        <img src="assets/images/biryani_luxury.jpg" alt="Biryani" />
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Signature Chicken Biryani</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox('assets/images/samosa_snack.jpg', 'Golden Crispy Samosas')">
+        <img src="assets/images/samosa_snack.jpg" alt="Samosas" />
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Golden Crispy Samosas</div>
+        </div>
+      </div>
+
+      <div class="gallery-item"
+        onclick="openLightbox('assets/images/sandwich_gourmet.jpg', 'Gourmet Egg & Veg Sandwich')">
+        <img src="assets/images/sandwich_gourmet.jpg" alt="Sandwich" />
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Gourmet Sandwiches</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox('assets/images/menu-board.jpg', 'Official Menu Board')">
+        <img src="assets/images/menu-board.jpg" alt="Menu Board" />
+        <div class="gallery-overlay">
+          <div class="gallery-caption">Official Cafe Menu Board</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img src="" id="lightbox-img" class="lightbox-img" alt="Enlarged gallery item" />
+  </div>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials-section">
+    <div class="section-header">
+      <span class="section-tag">Guest Reviews</span>
+      <h2 class="section-title">Words of Praise</h2>
+    </div>
+
+    <div class="testimonials-slider">
+      <div class="testimonial-card">
+        <div class="stars-row">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">
+          "The coffee here is simply unbeatable! The atmosphere feels like an international luxury lounge, yet the
+          prices are so welcoming. The Chicken Biryani and Samosas are absolute must-tries!"
+        </p>
+        <div class="author-name">Ramji Babu</div>
+        <div class="author-role">Regular Guest</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & RESERVATION SECTION -->
+  <section class="contact-section" id="contact">
+    <div class="section-header">
+      <span class="section-tag">Connect With Us</span>
+      <h2 class="section-title">Location & Reservations</h2>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Contact Info Card -->
+      <div class="contact-info-card">
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="info-details">
+            <h4>Our Location</h4>
+            <p>Greeta Towers, Industrial Estate, Perungudi, Chennai, Tamil Nadu 600096</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="info-details">
+            <h4>Phone & WhatsApp</h4>
+            <p><a href="tel:+917604872100">+91 7604872100</a></p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="info-details">
+            <h4>Business Hours</h4>
+            <p>Monday – Sunday: 7:00 AM – 10:30 PM</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-utensils"></i></div>
+          <div class="info-details">
+            <h4>Event Catering & Bulk Orders</h4>
+            <p>Direct event bookings available for parties & corporate events.</p>
+          </div>
+        </div>
+
+        <!-- Google Maps Embed pinned to Greeta Towers, Perungudi, Chennai -->
+        <div class="map-placeholder">
+          <iframe title="Wajiha's Cafe Google Maps Location - Greeta Towers Perungudi"
+            src="https://maps.google.com/maps?q=Greeta+Towers,+Industrial+Estate,+Perungudi,+Chennai&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Reservation / Order Form -->
+      <div class="reservation-form-card">
+        <h3 class="form-title">Reserve a Table / Bulk Order</h3>
+        <form id="reservation-form" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" id="form-name" class="form-control" placeholder="Enter your full name" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" id="form-phone" class="form-control" placeholder="+91 XXXXX XXXXX" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Request Type</label>
+            <select id="form-type" class="form-control" required>
+              <option value="Table Reservation">Table Reservation</option>
+              <option value="Bulk Event Order">Bulk Event Order</option>
+              <option value="General Inquiry">General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Special Requests / Menu Items</label>
+            <textarea id="form-notes" class="form-control"
+              placeholder="Mention preferred date, time, or bulk menu orders..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-luxury" style="width: 100%; margin-top: 10px;">
+            <i class="fa-solid fa-paper-plane"></i> Submit Booking
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img src="assets/images/logo.jpeg" alt="Wajiha Cafe Logo" class="footer-logo-img" />
+    <div class="footer-brand">WAJIHA'S CAFE</div>
+    <div class="footer-tagline">GOOD FOOD • GOOD MOOD • GREAT COFFEE</div>
+
+    <div class="footer-socials">
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><i
+          class="fa-brands fa-instagram"></i></a>
+      <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><i
+          class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://wa.me/917604872100" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp"><i
+          class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 Wajiha's Cafe. All Rights Reserved. Crafted with Passion &amp; Perfection.
+    </div>
+  </footer>
+
+  <!-- GLASS TOAST NOTIFICATION CONTAINER -->
+  <div class="glass-toast" id="glass-toast">
+    <i class="fa-solid fa-circle-check toast-icon"></i>
+    <span id="toast-message">Your booking request has been submitted successfully!</span>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+  <!-- Application Scripts -->
+  <script src="js/hero-3d.js"></script>
+  <script src="js/showcase-3d.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
